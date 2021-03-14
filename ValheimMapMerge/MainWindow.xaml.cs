@@ -80,7 +80,7 @@ namespace ValheimMapMerge
                 }
             }
             _worldId = _worlds.SingleOrDefault(x => x.Value == _profiles.Count()).Key;
-            return _worldId > 0;
+            return _worldId != 0;
         }
 
         public async Task Merge()
