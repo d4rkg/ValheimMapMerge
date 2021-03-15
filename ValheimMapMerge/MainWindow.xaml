@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ValheimPlayerData"
         mc:Ignorable="d"
-        Title="Valheim Map Merge 0.146.11" Height="481.76" Width="617.675" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Valheim Map Merge 0.146.11" Height="508.45" Width="617.675" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Margin="5">
             <Image Source="/ValheimMapMerge;component/Images/valheim_transparent.png" Height="100"></Image>
+            <CheckBox Name="chkMergePins" Margin="5">Merge pins</CheckBox>
             <GroupBox Header="Drop .fch files here" Margin="5" Height="270">
                 <StackPanel Name="ImagePanel" Drop="ImagePanel_Drop" AllowDrop="true" Background="Transparent" Margin="0,10,0,2" >
                     <ListBox x:Name="lbLog" Height="230" BorderThickness="0"></ListBox>

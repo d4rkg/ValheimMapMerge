@@ -50,6 +50,11 @@ namespace ValheimMapMerge
 
 		public PlayerStats m_playerStats = new PlayerStats();
 
+		public long GetPlayerId()
+        {
+			return m_playerID;
+        }
+
 		public bool LoadPlayerFromDisk(out string error)
 		{
 			error = string.Empty;
@@ -146,7 +151,7 @@ namespace ValheimMapMerge
 			return new ZPackage(data);
 		}
 
-		public bool MergeToDisk(long worldId, List<PlayerProfile> profiles)
+		public bool SaveToDisk(long worldId, byte[] mergedMap)
 		{
 			try
 			{
@@ -172,20 +177,12 @@ namespace ValheimMapMerge
 					{
 						if (current.Key == worldId)
 						{
-							for (int i = 8; i < (2048 * 2048); i++)
-							{
-								bool bVal = Convert.ToBoolean(current.Value.m_mapData[i]);
-								foreach (var p in profiles)
-								{
-									if (p == this)
-										continue;
-
-									bVal = bVal || Convert.ToBoolean(p.m_worldData[current.Key].m_mapData[i]);
-								}
-								current.Value.m_mapData[i] = Convert.ToByte(bVal);
-							}
+							zPackage.Write(mergedMap);
 						}
-						zPackage.Write(current.Value.m_mapData);
+						else
+						{
+							zPackage.Write(current.Value.m_mapData);
+						}
 					}
 				}
 				zPackage.Write(m_playerName);
@@ -216,10 +213,10 @@ namespace ValheimMapMerge
 
 				return true;
 			}
-			catch(Exception ex)
-            {
+			catch (Exception ex)
+			{
 				return false;
-            }
+			}
 		}
 	}
 }

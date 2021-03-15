@@ -68,6 +68,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helpers\MapMerge.cs" />
+    <Compile Include="Unity\MapData.cs" />
+    <Compile Include="Unity\Pin.cs" />
+    <Compile Include="Unity\PinType.cs" />
     <Compile Include="Unity\Quaternion.cs" />
     <Compile Include="Unity\Vector2i.cs" />
     <Compile Include="Unity\Vector3.cs" />
@@ -113,8 +117,6 @@
   <ItemGroup>
     <Resource Include="Viking.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
